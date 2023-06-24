@@ -1,0 +1,9 @@
+sudo: required # `sudo` is required to use docker
+services:
+  - docker # says to trevis: "hey, we will be needing docker"
+
+before_install: #commands executed before install
+  - docker build -t nailbiter/docker-react -f Dockerfile.dev . # no need to use real tag here, since it's not going to be pushed anywhere; nevertheless, good habit to do so
+
+script: #commands to run a test, if any of commands exits with nonzero status ==> assume failure
+  - docker run -e CI=true nailbiter/docker-react npm run test # need to make test non-interactive (default is interactive), hence additional keys
