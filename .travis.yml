@@ -7,3 +7,13 @@ before_install: #commands executed before install
 
 script: #commands to run a test, if any of commands exits with nonzero status ==> assume failure
   - docker run -e CI=true nailbiter/docker-react npm run test # need to make test non-interactive (default is interactive), hence additional keys
+
+deploy:
+  provider: elasticbeanstalk #travis comes pre-configured to handle array of providers, including AWS Elastic Beanstalk
+  region: "us-east-2"
+  app: "docker" #same as in AWS's dashboard (not env, but app name)
+  env: "Docker-env" #note that environments run inside apps, not other way round
+  bucket_name: "elasticbeanstalk-us-east-2-824059422197"
+  bucket_path: "docker"
+  on:
+    branch: main
