@@ -15,7 +15,6 @@ deploy:
   app: "docker" #same as in AWS's dashboard (not env, but app name)
   env: "Docker-env" #note that environments run inside apps, not other way round
   bucket_name: "elasticbeanstalk-us-east-2-824059422197"
-  bucket_path: "docker"
   on:
     branch: main
   access_key_id: $AWS_ACCESS_KEY
