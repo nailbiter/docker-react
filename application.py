@@ -23,7 +23,7 @@ handler.setFormatter(formatter)
 logger.addHandler(handler)
 
 welcome = """
-<html>hello!</html>
+<html>hello Sun Jun 25 15:33:05 JST 2023!</html>
 """
 
 def application(environ, start_response):
