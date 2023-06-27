@@ -15,3 +15,8 @@ after_success:
   - docker build -t nailbiter/multi-server ./server
   - docker build -t nailbiter/multi-worker ./worker
   - docker build -t nailbiter/multi-nginx ./nginx
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push nailbiter/multi-client
+  - docker push nailbiter/multi-server
+  - docker push nailbiter/multi-worker
+  - docker push nailbiter/multi-nginx
