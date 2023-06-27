@@ -1,0 +1,17 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t nailbiter/react-test -f ./client/Dockerfile.dev client
+
+script: #primary test-running section
+  - docker run -e CI=true nailbiter/react-test npm test
+
+
+after_success:
+  - docker build -t nailbiter/multi-client ./client
+  - docker build -t nailbiter/multi-server ./server
+  - docker build -t nailbiter/multi-worker ./worker
+  - docker build -t nailbiter/multi-nginx ./nginx
