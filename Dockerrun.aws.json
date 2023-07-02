@@ -1,0 +1,28 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "essential": false,
+      "hostname": "client",
+      "image": "nailbiter/multi-client",
+      "name": "client"
+    },
+    {
+      "essential": false,
+      "hostname": "api",
+      "image": "nailbiter/multi-server",
+      "name": "server"
+    },
+    {
+      "essential": false,
+      "hostname": "worker",
+      "image": "nailbiter/multi-worker",
+      "name": "worker"
+    },
+      {
+	"essential":true,
+	"hostname": "nginx",
+	"image":"",
+    }
+  ]
+}
