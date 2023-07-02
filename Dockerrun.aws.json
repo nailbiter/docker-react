@@ -19,10 +19,21 @@
       "image": "nailbiter/multi-worker",
       "name": "worker"
     },
-      {
-	"essential":true,
-	"hostname": "nginx",
-	"image":"",
+    {
+      "essential": true,
+      "hostname": "nginx",
+      "image": "nailbiter/multi-nginx",
+      "name": "nginx",
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 80
+        }
+      ],  "links": [
+    "client",
+    "server"
+  ]
     }
   ]
+
 }
