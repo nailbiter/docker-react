@@ -5,7 +5,7 @@ services:
     mem_limit: 128m
     hostname: client
   server:
-    image: 'rallycoding/multi-server'
+    image: 'nailbiter/multi-server'
     mem_limit: 128m
     hostname: api
     environment:
@@ -17,14 +17,14 @@ services:
       - PGPASSWORD=$PGPASSWORD
       - PGPORT=$PGPORT
   worker:
-    image: 'rallycoding/multi-worker'
+    image: 'nailbiter/multi-worker'
     mem_limit: 128m
     hostname: worker
     environment:
       - REDIS_HOST=$REDIS_HOST
       - REDIS_PORT=$REDIS_PORT
   nginx:
-    image: 'rallycoding/multi-nginx'
+    image: 'nailbiter/multi-nginx'
     mem_limit: 128m
     hostname: nginx
     ports:
