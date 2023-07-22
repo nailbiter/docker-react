@@ -4,7 +4,8 @@ services:
   - docker
 
 before_install:
-  - docker build -t nailbiter/react-test -f ./client/Dockerfile.dev client
+  echo hey
+  # - docker build -t nailbiter/react-test -f ./client/Dockerfile.dev client
 
 script: #primary test-running section
   - echo hi
@@ -12,7 +13,8 @@ script: #primary test-running section
 
 
 after_success:
-  - docker build -t nailbiter/multi-server ./server
+  echo hoy
+  #- docker build -t nailbiter/multi-server ./server
   # - docker build -t nailbiter/multi-client ./client
   # - docker build -t nailbiter/multi-worker ./worker
   # - docker build -t nailbiter/multi-nginx ./nginx
