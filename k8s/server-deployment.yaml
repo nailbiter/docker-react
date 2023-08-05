@@ -5,7 +5,8 @@ metadata:
 spec:
   replicas: 3
   selector:
-    component: server # note: labels (both key and val) can be arbitrary
+    matchLabels:
+      component: server # note: labels (both key and val) can be arbitrary
   template:
     metadata:
       labels:
