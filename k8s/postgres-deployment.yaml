@@ -25,3 +25,9 @@ spec:
             - name: postgres-storage # same as `volumes.name` above
               mountPath: /var/lib/postgresql/data
               subPath: postgres #specific for postgres to avoid errors
+          env:
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: pgpassword # `name` used in command-line
+                  key: PGPASSWORD
