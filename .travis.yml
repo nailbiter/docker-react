@@ -9,3 +9,6 @@ before_install:
   - true #authorization 👇
   - gcloud auth activate-service-account --key-file service-account.json
   - true # `service-account.json` above is extremely sensitive content
+  - gcloud config set project multi-k8s-396410
+  - gcloud config set compute/zone asia-northeast1
+  - gcloud container clusters get-credentials multi-cluster
