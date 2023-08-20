@@ -14,13 +14,13 @@ docker build -t nailbiter/multi-server:latest -t nailbiter/multi-server:$SHA -f 
 docker build -t nailbiter/multi-worker:latest -t nailbiter/multi-worker:$SHA -f ./worker/Dockerfile ./worker
 
 ## note: additional benifit of using $SHA -- simplifies debugging
-docker push nailbiter/multi-client-k8s:latest
-docker push nailbiter/multi-server-k8s:latest
-docker push nailbiter/multi-worker-k8s:latest
+docker push nailbiter/multi-client:latest
+docker push nailbiter/multi-server:latest
+docker push nailbiter/multi-worker:latest
 
-docker push nailbiter/multi-client-k8s:$SHA
-docker push nailbiter/multi-server-k8s:$SHA
-docker push nailbiter/multi-worker-k8s:$SHA
+docker push nailbiter/multi-client:$SHA
+docker push nailbiter/multi-server:$SHA
+docker push nailbiter/multi-worker:$SHA
 
 
 ## 2.
