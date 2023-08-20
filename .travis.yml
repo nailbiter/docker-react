@@ -16,7 +16,7 @@ before_install:
   - gcloud config set project multi-k8s-396410
   - gcloud config set compute/zone asia-northeast1
   - gcloud container clusters get-credentials multi-cluster
-  - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker build -t nailbiter/react-test -f ./client/Dockerfile.dev ./client
 
 script:
