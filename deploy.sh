@@ -35,6 +35,11 @@ kubectl apply -f k8s
 ## * (we spoke about this before -- need to use imperative command)
 ## * ==> need to tag image with unique tag (will use sha)
 ## * we omitted it above (see history of this file)
-kubectl set image deployments/server-deployment server=nailbiter/multi-server:$SHA
-kubectl set image deployments/worker-deployment worker=nailbiter/multi-worker:$SHA
-kubectl set image deployments/client-deployment client=nailbiter/multi-client:$SHA
+
+# kubectl set image deployments/server-deployment server=nailbiter/multi-server:$SHA
+# kubectl set image deployments/worker-deployment worker=nailbiter/multi-worker:$SHA
+# kubectl set image deployments/client-deployment client=nailbiter/multi-client:$SHA
+
+kubectl set image deployments/server-deployment server=rallycoding/multi-server-k8s:latest
+kubectl set image deployments/client-deployment client=rallycoding/multi-client-k8s:latest
+kubectl set image deployments/worker-deployment worker=rallycoding/multi-worker-k8s:latest
