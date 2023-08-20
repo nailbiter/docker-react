@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: postgres-deployment
 spec:
-  replicas: 1 # like Redis, can work in "cluster mode", in principle
+  replicas: 1
   selector:
     matchLabels:
       component: postgres
@@ -22,12 +22,12 @@ spec:
           ports:
             - containerPort: 5432
           volumeMounts:
-            - name: postgres-storage # same as `volumes.name` above
+            - name: postgres-storage
               mountPath: /var/lib/postgresql/data
-              subPath: postgres #specific for postgres to avoid errors
+              subPath: postgres
           env:
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: pgpassword # `name` used in command-line
+                  name: pgpassword
                   key: PGPASSWORD

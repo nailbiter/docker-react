@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: redis-deployment
 spec:
-  replicas: 1 #note: Redis can be set in "cluster mode" with >1 replicas, but for now set =1
+  replicas: 1
   selector:
     matchLabels:
       component: redis
@@ -14,7 +14,6 @@ spec:
     spec:
       containers:
         - name: redis
-          image: redis #public image
+          image: redis
           ports:
             - containerPort: 6379
-  

@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: worker-deployment
 spec:
-  replicas: 1 #note, that this is the pod that probably will need to scale up first, but for now set =1
+  replicas: 1
   selector:
     matchLabels:
       component: worker
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: worker
-          image: nailbiter/multi-worker
+          image: rallycoding/multi-worker
           env:
             - name: REDIS_HOST
               value: redis-cluster-ip-service
