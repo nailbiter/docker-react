@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+ name: letsencrypt-prod
+spec:
+ acme:
+   server: https://acme-v02.api.letsencrypt.org/directory
+   email: "alex.leontiev.forspam@gmail.com"
+   privateKeySecretRef:
+     name: letsencrypt-prod #NOT the secret certificate we'll get (small secret to send to LetsEncrypt on first engagement)
+   solvers:
+     - http01: #there's a different way ("dns" option), but it's more involved
+         ingress:
+           class: nginx
