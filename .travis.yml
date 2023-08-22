@@ -24,7 +24,7 @@ script:
   - echo hi #dummy
 #   - docker run -e CI=true nailbiter/react-test npm test # could run more (all) tests, but restrict to one for brevity
 
-deploy: # note -- unlike AWS, no built-in provider for k8s
+deploy: # note -- unlike AWS, no built-in provider for k8s ==> use `provider: script`
   provider: script
   script: bash ./deploy.sh
   on:
