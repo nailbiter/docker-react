@@ -1,0 +1,14 @@
+apiVersion: skaffold/v1beta2
+kind: Config
+build: #list deployments we want Skaffold to manage
+  local:
+    push: false # do not auto-push images to Dockerhub on change
+  artifacts: #essentially, containers we want Skaffold to manage
+    - image: nailbiter/multi-cient
+      context: client
+      docker:
+        dockerfile: Dockefile.dev
+      sync: #mode #2 (see https://docs.google.com/document/d/1ak9uHsHX4MzsI7ekTf_aj_qD9LnletujIDXLqE0Tg0w/edit#heading=h.wzq7zaf0pqmd)
+        '**/*.json': . # explains on which files to watch
+        '**/*.css': .
+        '**/*.html': .
