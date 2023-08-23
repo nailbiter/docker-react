@@ -8,7 +8,7 @@ build:
   local:
     push: false
   artifacts:
-    - image: rallycoding/client-skaffold
+    - image: nailbiter/client-skaffold
       context: client
       docker:
         dockerfile: Dockerfile.dev
@@ -20,7 +20,7 @@ build:
             dest: .
           - src: "src/**/*.html"
             dest: .
-    - image: rallycoding/worker-skaffold
+    - image: nailbiter/worker-skaffold
       context: worker
       docker:
         dockerfile: Dockerfile.dev
@@ -28,7 +28,7 @@ build:
         manual:
           - src: "*.js"
             dest: .
-    - image: rallycoding/server-skaffold
+    - image: nailbiter/server-skaffold
       context: server
       docker:
         dockerfile: Dockerfile.dev
