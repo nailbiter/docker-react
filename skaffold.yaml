@@ -1,0 +1,40 @@
+apiVersion: skaffold/v2beta12
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./k8s/*
+build:
+  tagPolicy:
+    sha256: {}
+  local:
+    push: true
+  artifacts:
+    - image: nailbiter/client-skaffold
+      context: client
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        manual: #these file are in scope of "mode #2" (see https://docs.google.com/document/d/1ak9uHsHX4MzsI7ekTf_aj_qD9LnletujIDXLqE0Tg0w/edit#heading=h.wzq7zaf0pqmd); every change beyond these extension will fall in scope of Skaffold's "mode 1"
+          - src: "src/**/*.js"
+            dest: .
+          - src: "src/**/*.css"
+            dest: .
+          - src: "src/**/*.html"
+            dest: .
+    - image: nailbiter/worker-skaffold
+      context: worker
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        manual:
+          - src: "*.js"
+            dest: .
+    - image: nailbiter/server-skaffold
+      context: server
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        manual:
+          - src: "*.js"
+            dest: .
