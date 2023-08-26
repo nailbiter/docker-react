@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: nailbiter/multi-server
+          image: nailbiter/skaffold-server
           ports:
             - containerPort: 5000
           env:
